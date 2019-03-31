@@ -27,6 +27,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -110,7 +111,8 @@ public class TheWar extends JavaPlugin implements Listener {
 			s.sendMessage("/minemc join/setspawn/setred/setgreen/setblue/setyellow/setpoint/setdeeppoint/save");
 			s.sendMessage("/minemc open [shop]");
 			s.sendMessage("/minemc set [shop] [size]");
-			s.sendMessage("Name/n打开商店: shop/nLore/n价值点数: amount/n奖励类型: item/baoshi/level");
+			s.sendMessage(
+					"Name/n打开商店: shop/n宝石: name/nLore/n价值点数: amount/n奖励类型: item/baoshi/level/n宝石种类: [kind]/n宝石品质: [quality]");
 		}
 		if ((args[0].equalsIgnoreCase("open") || args[0].equalsIgnoreCase("set")) && args.length != 0) {
 			new gui.shopcmd().cmd((Player) s, args);
@@ -171,6 +173,16 @@ public class TheWar extends JavaPlugin implements Listener {
 		}
 		return false;
 	}
+	@EventHandler
+	public void onInteract(PlayerInteractAtEntityEvent e) {
+		if (e.getRightClicked() != null && e.getRightClicked() instanceof Villager) {
+			if (playerteam.get(Bukkit.getPlayer(e.getRightClicked().getCustomName())).getplayers()
+					.contains(e.getPlayer())) {
+				Bukkit.dispatchCommand(e.getPlayer(), "minemc open base");
+			}
+		}
+	}
+
 	@EventHandler
 	public void onInteract(PlayerInteractEvent e) {
 		if (e.getPlayer().isOp() && e.getPlayer().getItemInHand() != null

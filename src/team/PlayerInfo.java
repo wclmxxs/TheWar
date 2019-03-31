@@ -9,14 +9,30 @@ public class PlayerInfo {
 	private int point;
 	private Villager zombie;
 	private int armour;
+	private int level;
+	private BaoshiInfo bi;
 
 	public PlayerInfo(String name) {
 		this.name = name;
 		this.point = 0;
 		this.health = 0;
 		this.armour = 0;
+		this.level = 0;
+		this.bi = new BaoshiInfo();
 	}
 
+	public Integer getlevel() {
+		return this.level;
+	}
+
+	public BaoshiInfo getbi() {
+		return this.bi;
+	}
+
+
+	public void addlevel() {
+		this.level = this.level + 1;
+	}
 	
 	public void addpoint(int pp) {
 		this.point = this.point + pp;
