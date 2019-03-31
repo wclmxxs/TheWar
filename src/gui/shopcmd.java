@@ -26,7 +26,6 @@ public class shopcmd {
 				size = Integer.valueOf(args[2]);
 				inv = Bukkit.createInventory(null, size, name + "ил╣Й");
 			} else {
-				size = shop.getConfigurationSection(name).getInt("size");
 				inv = (Inventory) shop.getConfigurationSection(name).get("inv");
 			}
 
@@ -48,7 +47,7 @@ public class shopcmd {
 				return;
 			}
 			ConfigurationSection cs = shop.getConfigurationSection(name);
-			Inventory inv = new gui.shopgui().getInventory(cs.getInt("size"), name);
+			Inventory inv = (Inventory) cs.get("inv");
 			s.openInventory(inv);
 		}
 

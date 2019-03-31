@@ -1,5 +1,6 @@
 package team;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Villager;
 
 public class PlayerInfo {
@@ -16,6 +17,7 @@ public class PlayerInfo {
 
 	public void addpoint(int pp) {
 		this.point = this.point + pp;
+		Bukkit.getPlayer(name).sendMessage("当前点数: " + point);
 	}
 
 	public Integer getpoint() {

@@ -24,6 +24,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -109,7 +110,7 @@ public class TheWar extends JavaPlugin implements Listener {
 			s.sendMessage("/minemc join/setspawn/setred/setgreen/setblue/setyellow/setpoint/setdeeppoint/save");
 			s.sendMessage("/minemc open [shop]");
 			s.sendMessage("/minemc set [shop] [size]");
-			s.sendMessage("Name/n打开商店: shop/nLore/n价值点数: amount");
+			s.sendMessage("Name/n打开商店: shop/nLore/n价值点数: amount/n奖励类型: item/baoshi/level");
 		}
 		if ((args[0].equalsIgnoreCase("open") || args[0].equalsIgnoreCase("set")) && args.length != 0) {
 			new gui.shopcmd().cmd((Player) s, args);
@@ -255,7 +256,7 @@ public class TheWar extends JavaPlugin implements Listener {
 
 	@EventHandler
 	public void onClick(InventoryClickEvent e) {
-		if (e.getInventory() != null && e.getInventory().getName().contains("商店")) {
+		if (e.getInventory() != null&&!e.getWhoClicked().isOp() && e.getInventory().getName().contains("商店")) {
 			e.setCancelled(true);
 			new gui.shopevent().onClick(e);
 		}
@@ -385,6 +386,15 @@ public class TheWar extends JavaPlugin implements Listener {
 
 	}
 
+	@EventHandler
+	public void onClose(InventoryCloseEvent e)
+	{
+		if(e.getInventory()!=null&&e.getInventory().getName().contains("商店"))
+		{
+		new gui.shopevent().onSave(e);
+	
+		}
+	}
 	@EventHandler
 	public void ondamage(EntityDamageByEntityEvent e) {
 

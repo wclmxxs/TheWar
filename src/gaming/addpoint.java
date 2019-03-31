@@ -24,7 +24,6 @@ public class addpoint {
 					}
 					int kk = config.getInt("point") * ti.getpoint();
 					pi.addpoint(config.getInt("add") + kk + k);
-					p.sendMessage("当前点数: " + pi.getpoint());
 
 
 			}
