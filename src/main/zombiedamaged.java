@@ -10,6 +10,8 @@ import org.bukkit.entity.Villager;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import team.PlayerInfo;
+
 public class zombiedamaged {
 
 	public void damage(EntityDamageByEntityEvent e, FileConfiguration config) {
@@ -44,6 +46,10 @@ public class zombiedamaged {
 				}
 			}
 		}
+		
+		PlayerInfo pi = TheWar.playerinfo.get(p);
+		e.setCancelled(true);
+		pi.setdamage(e.getFinalDamage());
 
 	}
 

@@ -3,6 +3,7 @@ package gui;
 import java.io.File;
 import java.io.IOException;
 
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -16,6 +17,14 @@ public class shopevent {
 
 	public void giveSomething(String type, ItemStack item)
 	{
+		FileConfiguration config = TheWar.config;
+		ConfigurationSection hp = config.getConfigurationSection("level").getConfigurationSection("health");
+		ConfigurationSection ar = config.getConfigurationSection("level").getConfigurationSection("armour");
+		
+		if(type.equalsIgnoreCase("level"))
+		{
+			
+		}
 		僵尸级别
 		宝石仓库
 		物品
