@@ -112,7 +112,7 @@ public class TheWar extends JavaPlugin implements Listener {
 			s.sendMessage("/minemc open [shop]");
 			s.sendMessage("/minemc set [shop] [size]");
 			s.sendMessage(
-					"Name/n打开商店: shop/n宝石: name/nLore/n价值点数: amount/n奖励类型: item/baoshi/level/n宝石种类: [kind]/n宝石品质: [quality]");
+					"Name/n打开商店: shop/n宝石/n宝石等待区/n宝石上场区/nLore/n价值点数: amount/n奖励类型: item/baoshi/level/n宝石种类: [kind]/n宝石品质: [quality]");
 		}
 		if ((args[0].equalsIgnoreCase("open") || args[0].equalsIgnoreCase("set")) && args.length != 0) {
 			new gui.shopcmd().cmd((Player) s, args);
@@ -268,6 +268,9 @@ public class TheWar extends JavaPlugin implements Listener {
 
 	@EventHandler
 	public void onClick(InventoryClickEvent e) {
+		if (e.getInventory() != null && e.getInventory().getName().contains("宝石")) {
+			new baoshi.baoshievent().onClick(e);
+		}
 		if (e.getInventory() != null&&!e.getWhoClicked().isOp() && e.getInventory().getName().contains("商店")) {
 			e.setCancelled(true);
 			new gui.shopevent().onClick(e);
@@ -401,6 +404,7 @@ public class TheWar extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onClose(InventoryCloseEvent e)
 	{
+
 		if(e.getInventory()!=null&&e.getInventory().getName().contains("商店"))
 		{
 		new gui.shopevent().onSave(e);

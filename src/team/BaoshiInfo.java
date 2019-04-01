@@ -17,8 +17,8 @@ public class BaoshiInfo {
 		return bs;
 	}
 
-	public void setbaoshis(Baoshi bs) {
-		this.bs.add(bs);
+	public void setbaoshis(List bs) {
+		this.bs = bs;
 	}
 
 	public List getwaits() {
@@ -31,6 +31,21 @@ public class BaoshiInfo {
 
 	public void addwaits(Baoshi baoshi) {
 		this.wait.add(baoshi);
+
+	}
+
+	public void removewaits(Baoshi baoshi) {
+		this.wait.remove(baoshi);
+
+	}
+
+	public void addbaoshis(Baoshi baoshi) {
+		this.bs.add(baoshi);
+
+	}
+
+	public void removebaoshis(Baoshi baoshi) {
+		this.bs.remove(baoshi);
 
 	}
 }

@@ -5,12 +5,14 @@ public class Baoshi {
 	private String kind;
 	private String quality;
 	private int level;
+	private int price;
 
-	public Baoshi(String name, String kind, String quality) {
+	public Baoshi(String name, String kind, String quality, int price) {
 		this.level = 1;
 		this.name = name;
 		this.kind = kind;
 		this.quality = quality;
+		this.price = price;
 	}
 
 	public void addlevel() {
@@ -19,6 +21,10 @@ public class Baoshi {
 
 	public String getname() {
 		return this.name;
+	}
+
+	public Integer getprice() {
+		return this.price * getlevel();
 	}
 
 	public Integer getlevel() {

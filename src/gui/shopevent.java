@@ -3,6 +3,7 @@ package gui;
 import java.io.File;
 import java.io.IOException;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -19,7 +20,7 @@ import team.PlayerInfo;
 
 public class shopevent {
 
-	public void giveSomething(String type, ItemStack item,Player p)
+	public void giveSomething(String type, ItemStack item, Player p, int price)
 	{
 		FileConfiguration config = TheWar.config;
 		ConfigurationSection hp = config.getConfigurationSection("level").getConfigurationSection("health");
@@ -41,9 +42,9 @@ public class shopevent {
 			}
 			String kind = item.getItemMeta().getLore().toString().split("种类: ")[1].split("[")[1].split("]")[0];
 			String quality = item.getItemMeta().getLore().toString().split("品质: ")[1].split("[")[1].split("]")[0];
-			Baoshi baoshi = new Baoshi(item.getItemMeta().getDisplayName().split(": ")[1], kind, quality);
+			Baoshi baoshi = new Baoshi(item.getItemMeta().getDisplayName().split(": ")[1], kind, quality, price);
 			bi.addwaits(baoshi);
-			new gaming.checkbaoshi().check(bi, baoshi, p);
+			new baoshi.checkbaoshi().check(bi, baoshi, p);
 			if (bi.getwaits().size() == config.getInt("wait")) {
 				p.sendMessage("您的等待区宝石已经达到上限,下次购买将扣除点数,但不会获得宝石");
 			}
@@ -58,12 +59,30 @@ public class shopevent {
 		ItemStack item = e.getCurrentItem();
 		if(item!=null&&item.hasItemMeta())
 		{
+			if (item.getItemMeta().hasDisplayName() && item.getItemMeta().getDisplayName().contains("宝石商店")) {
+				Inventory inv = Bukkit.createInventory(null, 9, "宝石商店");
+				for (int i = 0; i < 6; i++) {
+					inv.setItem(i, new baoshi.getbaoshi().get());
+				}
+				e.getWhoClicked().openInventory(inv);
+			}
+			if (item.getItemMeta().hasDisplayName() && item.getItemMeta().getDisplayName().contains("宝石等待区")) {
+				Inventory inv = Bukkit.createInventory(null, 9, "宝石等待区");
+				inv = new baoshi.baoshiinv().getwait(inv, (Player) e.getWhoClicked());
+				e.getWhoClicked().openInventory(inv);
+			}
+			if (item.getItemMeta().hasDisplayName() && item.getItemMeta().getDisplayName().contains("宝石上场区")) {
+				Inventory inv = Bukkit.createInventory(null, 9, "宝石上场区");
+				inv = new baoshi.baoshiinv().geting(inv, (Player) e.getWhoClicked());
+				e.getWhoClicked().openInventory(inv);
+			}
 			if(item.getItemMeta().hasDisplayName()&&item.getItemMeta().getDisplayName().contains("打开商店:"))
 			{
 				String name = item.getItemMeta().getDisplayName().split(": ")[1];
 				File file = new File("plugins/TheWar/shop.yml");
 				FileConfiguration shop = YamlConfiguration.loadConfiguration(file);
 				Inventory inv = (Inventory) shop.getConfigurationSection(name).get("inv");
+				e.getWhoClicked().openInventory(inv);
 			}
 			if(item.getItemMeta().hasLore()&&item.getItemMeta().getLore().toString().contains("价值点数: "))
 			{
@@ -86,7 +105,7 @@ public class shopevent {
 									}
 								}
 							}
-							giveSomething(type, item, (Player) e.getWhoClicked());
+							giveSomething(type, item, (Player) e.getWhoClicked(), point);
 						}
 						else
 						{

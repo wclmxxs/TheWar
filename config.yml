@@ -22,9 +22,9 @@ range: 10
 #僵尸生成范围
 occupytime: 5
 #占领据点所需时间
-wait: 8
+wait: 9
 #等待区宝石上限
-ing: 10
+ing: 9
 #装备区宝石上限
 level:
  armour:
@@ -37,7 +37,6 @@ level:
   7: 7
   8: 8
   9: 9
-  10: 10
  health:
   1: 100
   2: 200
