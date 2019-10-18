@@ -31,8 +31,10 @@ public class getbaoshi {
 		List<String> lore = cs.getConfigurationSection("1").getStringList("lore");
 		lore.add("§e奖励类型: baoshi");
 		lore.add("§e价值点数: " + cs.getInt("price"));
-		lore.add("§e宝石种类: [" + cs.getString("kind") + "]");
-		lore.add("§e宝石品质: [" + cs.getString("kind") + "]");
+		lore.add("§e宝石种类: " + cs.getString("kind"));
+		lore.add("§e宝石品质: " + cs.getString("quality"));
+		meta.setLore(lore);
+		item.setItemMeta(meta);
 		return item;
 	}
 

@@ -26,7 +26,8 @@ public class occupy {
 			{
 				TeamInfo tid = TheWar.points.get(loc);
 				tid.addpoint(-1);
-				Bukkit.broadcastMessage(p.getName() + "占领了 " + tid.getname()+ ChatColor.RESET +  "的一个据点");
+				Bukkit.broadcastMessage(
+						ti.getname() + "队伍的" + p.getName() + "占领了 " + tid.getname() + ChatColor.RESET + "的一个据点");
 				ti.setoccupy(null);
 				TheWar.points.remove(loc);
 				TheWar.points.put(loc, ti);
@@ -38,7 +39,7 @@ public class occupy {
 				block.setData(ti.getid());
 			}
  else {
-				Bukkit.broadcastMessage(p.getName() + "占领了一个无主据点");
+				Bukkit.broadcastMessage(ti.getname() + "队伍的" + p.getName() + "占领了一个无主据点");
 				ti.setoccupy(null);
 				TheWar.points.remove(loc);
 				TheWar.points.put(loc, ti);
@@ -53,7 +54,7 @@ public class occupy {
 	}
 
 	public void occupydeep(Player p, Location loc, TeamInfo ti) {
-		if (!ti.isOccupy().equals(p)) {
+		if (ti.isOccupy() == null || !ti.isOccupy().equals(p)) {
 			return;
 		}
 		for (TeamInfo tii : TheWar.isgaming) {
@@ -62,7 +63,7 @@ public class occupy {
 			}
 		}
 
-		Bukkit.broadcastMessage(p.getName() + "占领了中心据点");
+		Bukkit.broadcastMessage(ti.getname() + "队伍的" + p.getName() + "占领了中心据点");
 		ti.setoccupy(null);
 		ti.setdeeppoint(true);
 		Block block = loc.getBlock();

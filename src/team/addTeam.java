@@ -26,19 +26,20 @@ public class addTeam {
 	}
 
 	public void addteam(Player p, TeamInfo team) {
-		if (main.TheWar.playerteam.containsKey(p)) {
-			main.TheWar.playerteam.get(p).removeplayer(p);
-			main.TheWar.playerteam.remove(p);
-		}
+
 		Integer[] size = { red.getplayers().size(), blue.getplayers().size(), green.getplayers().size(),
 				yellow.getplayers().size() };
 		Arrays.sort(size);
-		if (team.getplayers().size() - 1 > size[0]) {
+		if (team.getplayers().size() - 1 >= size[0]) {
 			p.sendMessage("该队伍人数过多,或者有一个队伍人数过少");
 			return;
 		}
+		if (main.TheWar.playerteam.containsKey(p.getName())) {
+			main.TheWar.playerteam.get(p.getName()).removeplayer(p);
+			main.TheWar.playerteam.remove(p.getName());
+		}
 		team.addplayer(p);
-		main.TheWar.playerteam.put(p, team);
+		main.TheWar.playerteam.put(p.getName(), team);
 		p.sendMessage("§6加入队伍成功: " + team.getname());
 		new tag.setname().setScoreboard(p, team.getname());
 	}

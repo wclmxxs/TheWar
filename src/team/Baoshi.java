@@ -6,6 +6,7 @@ public class Baoshi {
 	private String quality;
 	private int level;
 	private int price;
+	private int time;
 
 	public Baoshi(String name, String kind, String quality, int price) {
 		this.level = 1;
@@ -13,6 +14,7 @@ public class Baoshi {
 		this.kind = kind;
 		this.quality = quality;
 		this.price = price;
+		this.time = 0;
 	}
 
 	public void addlevel() {
@@ -23,8 +25,19 @@ public class Baoshi {
 		return this.name;
 	}
 
+	public Integer gettime() {
+		return this.time;
+	}
+
+	public void settime(int time) {
+		this.time = time;
+	}
 	public Integer getprice() {
-		return this.price * getlevel();
+		if (getlevel() != 1) {
+			return this.price * (getlevel() - 1) * 3;
+		} else {
+			return this.price;
+		}
 	}
 
 	public Integer getlevel() {

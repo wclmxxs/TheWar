@@ -9,6 +9,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
+import org.bukkit.inventory.ItemStack;
 
 import team.PlayerInfo;
 import team.TeamInfo;
@@ -24,16 +25,12 @@ public class joingame {
 	public void join(Player p) {
 		TeamInfo team = null;
 		;
-		if (!main.TheWar.playerteam.containsKey(p)) {
-			team = new team.addTeam().getminSizeTeam();
-			new team.addTeam().addteam(p, team);
-		}
- else {
-			team = TheWar.playerteam.get(p);
-		}
+		team = TheWar.playerteam.get(p.getName());
+
 		Location loc = null;
 		Location locs = null;
 		gaming.add(p);
+
 		if (red.getplayers().contains(p)) {
 			p.teleport((Location) config.get("red"));
 			locs = ((Location) config.get("red"));
@@ -59,14 +56,23 @@ public class joingame {
 		loc = new Location(Bukkit.getWorld("world"),
  locs.getX() + x, locs.getY(), locs.getZ() + z);
 		while (team.getlocs().contains(loc)) {
+			if (team.getname().contains("蓝队") || team.getname().contains("黄队")) {
+				z = new Random().nextInt(config.getInt("range")) - config.getInt("range") / 2;
+			} else {
+				x = new Random().nextInt(config.getInt("range")) - config.getInt("range") / 2;
+			}
 			loc = new Location(Bukkit.getWorld("world"),
  locs.getX() + x, locs.getY(), locs.getZ() + z);
 		}
 
 		team.addloc(loc);
+		p.setMaxHealth(20);
 		p.sendMessage("您已经加入了游戏");
 		p.getInventory().clear();
 		producezombie(loc, p);
+		for (ItemStack item : TheWar.pjob.get(p).getItems()) {
+			p.getInventory().addItem(item);
+		}
 	}
 
 	private void producezombie(Location loc, Player p) {
@@ -78,7 +84,7 @@ public class joingame {
 		PlayerInfo pi = TheWar.playerinfo.get(p);
 		pi.setzombie(zombie);
 		pi.addpoint(config.getInt("base"));
-		pi.setmaxhealth(config.getInt("zombie"));
+		pi.setmaxhealth(0);
 		new gaming.addpoint().addpoint(config, p);
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("TheWar"), new Runnable() {
 			@Override
@@ -90,6 +96,6 @@ public class joingame {
 				}
 			}
 		}, 0l, 20l);
-
+		new main.ScoreboardManager().createScoreboard(p);
 	}
 }

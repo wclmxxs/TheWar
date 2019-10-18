@@ -28,29 +28,41 @@ public class baoshievent {
 
 		if (e.getInventory().getName().contains("等待区")) {
 				List<Baoshi> waits = bi.getwaits();
-				String lore = item.getItemMeta().getLore().toString();
+				List<String> lore = item.getItemMeta().getLore();
 				String name = item.getItemMeta().getDisplayName();
-				int level = Integer.valueOf(lore.split("等级: ")[1].split("[")[1].split("]")[0]);
+				int level = 0;
+				for (String aa : lore) {
+					if (aa.contains("等级")) {
+						level = Integer.valueOf(aa.split(": ")[1]);
+					}
+				}
 
 				for (int i = 0; i < waits.size(); i++) {
 					Baoshi bb = waits.get(i);
+
 					if (bb.getname().equals(name) && bb.getlevel() == level) {
 						int price = waits.get(i).getprice();
 						waits.remove(i);
 						p.sendMessage("卖出成功");
 						TheWar.playerinfo.get(p).addpoint(price);
 						bi.setwaits(waits);
-						e.getInventory().remove(e.getSlot());
-						p.updateInventory();
+						e.getWhoClicked().closeInventory();
+						Inventory inv = new baoshiinv().getwait(Bukkit.createInventory(null, 9, "宝石等待区"), p);
+						p.openInventory(inv);
 						break;
 					}
 				}
 		}
 		if (e.getInventory().getName().contains("上场区")) {
 				List<Baoshi> baoshis = bi.getbaoshis();
-				String lore = item.getItemMeta().getLore().toString();
+				List<String> lore = item.getItemMeta().getLore();
 				String name = item.getItemMeta().getDisplayName();
-				int level = Integer.valueOf(lore.split("等级: ")[1].split("[")[1].split("]")[0]);
+				int level = 0;
+				for (String aa : lore) {
+					if (aa.contains("等级")) {
+						level = Integer.valueOf(aa.split(": ")[1]);
+					}
+				}
 
 				for (int i = 0; i < baoshis.size(); i++) {
 					Baoshi bb = baoshis.get(i);
@@ -60,8 +72,13 @@ public class baoshievent {
 						p.sendMessage("卖出成功");
 						TheWar.playerinfo.get(p).addpoint(price);
 						bi.setbaoshis(baoshis);
-						e.getInventory().remove(e.getSlot());
-						p.updateInventory();
+						e.getWhoClicked().closeInventory();
+						Inventory inv = new baoshiinv().geting(Bukkit.createInventory(null, 9, "宝石上场区"), p);
+						p.openInventory(inv);
+						new baoshieffect.event().setMaxHealth(p);
+						new baoshieffect.buff().kind(p);
+						new baoshieffect.buff().quality(p);
+						new main.ScoreboardManager().createScoreboard(p);
 						break;
 					}
 				}
@@ -72,13 +89,18 @@ public class baoshievent {
 			List<Baoshi> baoshis = bi.getbaoshis();
 			if (e.getInventory().getName().contains("等待区")) {
 
-				if (baoshis.size() >= TheWar.playerinfo.get(p).getlevel()) {
-					p.sendMessage("您当前的等级只能上场" + TheWar.playerinfo.get(p).getlevel() + "个宝石");
+				if (baoshis.size() > TheWar.playerinfo.get(p).getlevel()) {
+					p.sendMessage("您当前的等级只能上场" + (TheWar.playerinfo.get(p).getlevel() + 1) + "个宝石");
 					return;
 				}
-				String lore = item.getItemMeta().getLore().toString();
+				List<String> lore = item.getItemMeta().getLore();
 				String name = item.getItemMeta().getDisplayName();
-				int level = Integer.valueOf(lore.split("等级: ")[1].split("[")[1].split("]")[0]);
+				int level = 0;
+				for (String aa : lore) {
+					if (aa.contains("等级")) {
+						level = Integer.valueOf(aa.split(": ")[1]);
+					}
+				}
 
 				for (int i = 0; i < waits.size(); i++) {
 					Baoshi bb = waits.get(i);
@@ -91,6 +113,11 @@ public class baoshievent {
 						p.closeInventory();
 						Inventory inv = new baoshiinv().getwait(Bukkit.createInventory(null, 9, "宝石等待区"), p);
 						p.openInventory(inv);
+						p.sendMessage("成功上场");
+						new baoshieffect.event().setMaxHealth(p);
+						new baoshieffect.buff().kind(p);
+						new baoshieffect.buff().quality(p);
+						new main.ScoreboardManager().createScoreboard(p);
 					}
 				}
 
@@ -100,9 +127,14 @@ public class baoshievent {
 					p.sendMessage("您当前的等级只能拥有" + TheWar.playerinfo.get(p).getlevel() + "个宝石在等待区");
 					return;
 				}
-				String lore = item.getItemMeta().getLore().toString();
+				List<String> lore = item.getItemMeta().getLore();
 				String name = item.getItemMeta().getDisplayName();
-				int level = Integer.valueOf(lore.split("等级: ")[1].split("[")[1].split("]")[0]);
+				int level = 0;
+				for (String aa : lore) {
+					if (aa.contains("等级")) {
+						level = Integer.valueOf(aa.split(": ")[1]);
+					}
+				}
 
 				for (int i = 0; i < baoshis.size(); i++) {
 					Baoshi bb = baoshis.get(i);
@@ -113,11 +145,17 @@ public class baoshievent {
 						bi.setbaoshis(baoshis);
 						new baoshi.checkbaoshi().check(bi, bb, p);
 						p.closeInventory();
-						Inventory inv = new baoshiinv().getwait(Bukkit.createInventory(null, 9, "宝石上场区"), p);
+						Inventory inv = new baoshiinv().geting(Bukkit.createInventory(null, 9, "宝石上场区"), p);
 						p.openInventory(inv);
+						p.sendMessage("成功撤掉");
+						new baoshieffect.event().setMaxHealth(p);
+						new baoshieffect.buff().kind(p);
+						new baoshieffect.buff().quality(p);
+						new main.ScoreboardManager().createScoreboard(p);
 					}
 				}
 			}
+
 		}
 	}
 }

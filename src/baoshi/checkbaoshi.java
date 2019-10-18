@@ -1,5 +1,6 @@
 package baoshi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.entity.Player;
@@ -15,13 +16,17 @@ public class checkbaoshi {
 			return;
 		}
 		List<Baoshi> wait = bi.getwaits();
+		List<Baoshi> remove = new ArrayList();
 		for (Baoshi b1 : wait) {
-			if (b1.equals(baoshi)) {
+			if (b1.getname().equalsIgnoreCase(baoshi.getname()) && b1.getlevel() == baoshi.getlevel()) {
 				amount = amount + 1;
+				remove.add(b1);
 			}
 		}
 		if (amount == 3) {
-			wait.remove(baoshi);
+			for (Baoshi baoshia : remove) {
+				wait.remove(baoshia);
+			}
 			baoshi.addlevel();
 			wait.add(baoshi);
 			bi.setwaits(wait);
@@ -38,13 +43,17 @@ public class checkbaoshi {
 			return;
 		}
 		List<Baoshi> baoshis = bi.getbaoshis();
+		List<Baoshi> remove = new ArrayList();
 		for (Baoshi b1 : baoshis) {
-			if (b1.equals(baoshi)) {
+			if (b1.getname().equalsIgnoreCase(baoshi.getname()) && b1.getlevel() == baoshi.getlevel()) {
 				amount = amount + 1;
+				remove.add(b1);
 			}
 		}
 		if (amount == 3) {
-			baoshis.remove(baoshi);
+			for (Baoshi baoshia : remove) {
+				baoshis.remove(baoshia);
+			}
 			baoshi.addlevel();
 			baoshis.add(baoshi);
 			bi.setbaoshis(baoshis);

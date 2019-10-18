@@ -27,12 +27,16 @@ public class gamestart {
 				if (i > 0) {
 
 					if (main.TheWar.playerteam.size() >= config.getInt("min")) {
-								for (Player p : TheWar.playerteam.keySet()) {
+								for (String ps : TheWar.playerteam.keySet()) {
+									Player p = Bukkit.getPlayer(ps);
 						p.sendMessage("§a游戏将在" + i + "s后开始.");
 								}
 					} else {
-								for (Player p : TheWar.playerteam.keySet()) {
+								if (main.TheWar.isgame) {
+									for (String ps : TheWar.playerteam.keySet()) {
+										Player p = Bukkit.getPlayer(ps);
 						p.sendMessage("§a游戏人数不足" + config.getInt("min") + "人,游戏取消.");
+								}
 								}
 						main.TheWar.isgame = false;
 						return;
@@ -41,14 +45,17 @@ public class gamestart {
 				}
 				if (i == 0) {
 							kk = false;
-							for (Player p : TheWar.playerteam.keySet()) {
+							for (String ps : TheWar.playerteam.keySet()) {
+								Player p = Bukkit.getPlayer(ps);
 								PlayerInfo pi = new PlayerInfo(p.getName());
 								main.TheWar.playerinfo.put(p, pi);
-					p.sendMessage("§e游戏开始了.");
-
+								p.sendMessage("§e游戏开始了.");
+								if (!TheWar.isgaming.contains(TheWar.playerteam.get(p.getName()))) {
+									TheWar.isgaming.add(TheWar.playerteam.get(p.getName()));
+								}
 								new main.joingame().join(p);
 							}
-
+							new baoshieffect.buff().onHeal();
 							kk = true;
 
 				}

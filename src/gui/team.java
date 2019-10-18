@@ -66,6 +66,7 @@ public class team {
 			item.setItemMeta(meta);
 			inv.setItem(3, item);
 		}
+
 		return inv;
 	}
 

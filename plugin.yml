@@ -3,6 +3,6 @@ main: main.TheWar
 version: 1.0
 author: Mxxs
 commands:
-   minemc:
+   thewar:
       description: This is a demo command.
-      usage: /minemc [player]
+      usage: /thewar [player]

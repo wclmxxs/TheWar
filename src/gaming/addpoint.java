@@ -15,15 +15,18 @@ public class addpoint {
 			@Override
 			public void run() {
 
-
+				if (p != null && TheWar.gaming.contains(p) && TheWar.playerteam.containsKey(p.getName())) {
 					PlayerInfo pi = TheWar.playerinfo.get(p);
-					TeamInfo ti = TheWar.playerteam.get(p);
+					TeamInfo ti = TheWar.playerteam.get(p.getName());
 					int k = 0;
-					if (ti.isdeeppoint()) {
+					if (ti != null && ti.isdeeppoint()) {
 						k = config.getInt("deeppoint");
 					}
+
+					k = k + new baoshieffect.buff().getyellow(pi);
 					int kk = config.getInt("point") * ti.getpoint();
 					pi.addpoint(config.getInt("add") + kk + k);
+				}
 
 
 			}

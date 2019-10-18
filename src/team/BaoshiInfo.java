@@ -7,9 +7,11 @@ public class BaoshiInfo {
 
 	private List<Baoshi> bs;
 	private List<Baoshi> wait;
+	private String name;
 
-	public void BaoshiInfo() {
+	public BaoshiInfo(String name) {
 		this.bs = new ArrayList();
+		this.name = name;
 		this.wait = new ArrayList();
 	}
 

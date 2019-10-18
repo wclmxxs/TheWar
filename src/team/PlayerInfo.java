@@ -2,6 +2,9 @@ package team;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Villager;
+import org.bukkit.inventory.Inventory;
+
+import main.TheWar;
 
 public class PlayerInfo {
 	private String name;
@@ -11,14 +14,55 @@ public class PlayerInfo {
 	private int armour;
 	private int level;
 	private BaoshiInfo bi;
+	private int time;
+	private int rtime;
+	private Inventory inv;
+	private Integer[] qints;
+	// 白绿黄蓝紫
+	private Integer[] kints;
 
+	// 进攻；守备；爆发；功能；持久
 	public PlayerInfo(String name) {
 		this.name = name;
+		this.qints = new Integer[5];
+		this.kints = new Integer[5];
+		this.rtime = 0;
+		for (int i = 0; i < qints.length; i++) {
+			qints[i] = 0;
+			kints[i] = 0;
+		}
 		this.point = 0;
-		this.health = 0;
+		this.time = 0;
+		this.health = TheWar.config.getInt("zombie");
 		this.armour = 0;
 		this.level = 0;
-		this.bi = new BaoshiInfo();
+		this.bi = new BaoshiInfo(name);
+
+	}
+
+
+	public void setkints(int i, int j) {
+		this.kints[j] = i;
+	}
+
+	public Integer[] getkints() {
+		return this.kints;
+	}
+
+	public void setints(int i, int j) {
+		this.qints[j] = i;
+	}
+
+	public Integer[] getints() {
+		return this.qints;
+	}
+
+	public Inventory getinv() {
+		return this.inv;
+	}
+
+	public void setinv(Inventory inv) {
+		this.inv = inv;
 	}
 
 	public Integer getlevel() {
@@ -36,7 +80,9 @@ public class PlayerInfo {
 	
 	public void addpoint(int pp) {
 		this.point = this.point + pp;
-		Bukkit.getPlayer(name).sendMessage("当前点数: " + point);
+		if (Bukkit.getPlayer(name) != null) {
+			new main.ScoreboardManager().createScoreboard(Bukkit.getPlayer(name));
+		}
 	}
 
 	public Integer getpoint() {
@@ -63,9 +109,6 @@ public class PlayerInfo {
 	
 	public void sethealth(double pp) {
 		this.health = (int) (this.health + pp);
-		if (this.health > this.zombie.getMaxHealth()) {
-			setmaxhealth(this.health);
-		}
 		
 		this.zombie.setHealth(this.health);
 	}
@@ -86,4 +129,23 @@ public class PlayerInfo {
 		return this.zombie;
 	}
 
+	public int gettime() {
+		// TODO Auto-generated method stub
+		return this.time;
+	}
+
+	public void settime(int time) {
+		// TODO Auto-generated method stub
+		this.time = time;
+	}
+
+	public int getrtime() {
+		// TODO Auto-generated method stub
+		return this.rtime;
+	}
+
+	public void setrtime(int rtime) {
+		// TODO Auto-generated method stub
+		this.rtime = rtime;
+	}
 }

@@ -1,0 +1,753 @@
+base商店:
+  size: 9
+  inv:
+  - ==: org.bukkit.inventory.ItemStack
+    type: IRON_SWORD
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: '§e打开商店: 武器'
+      lore:
+      - §e点击打开对应商店
+  - ==: org.bukkit.inventory.ItemStack
+    type: IRON_CHESTPLATE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: '§e打开商店: 装备'
+      lore:
+      - §e点击打开对应商店
+  - ==: org.bukkit.inventory.ItemStack
+    type: APPLE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: '§e打开商店: 食物药水'
+      lore:
+      - §e点击打开对应商店
+  - ==: org.bukkit.inventory.ItemStack
+    type: IRON_PICKAXE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: '§e打开商店: 工具方块'
+      lore:
+      - §e点击打开对应商店
+  - ==: org.bukkit.inventory.ItemStack
+    type: MAGMA_CREAM
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §e升级村民
+      lore:
+      - '§a奖励类型: level'
+      - 下一级
+      - '§a价值点数: 100'
+      - '§a增加护甲: 0'
+      - '§a增加血量: 100'
+  - ==: org.bukkit.inventory.ItemStack
+    type: GOLD_INGOT
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §e宝石商店
+      lore:
+      - §e点击打开购买宝石
+  - null
+  - ==: org.bukkit.inventory.ItemStack
+    type: WOOD
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §e§l宝石等待区
+      lore:
+      - §6点击查看等待区的宝石
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §e§l宝石上场区
+      lore:
+      - §6点击查看已经装备的宝石
+工具方块商店:
+  size: 18
+  inv:
+  - ==: org.bukkit.inventory.ItemStack
+    type: WOOD
+    amount: 16
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a建筑方块
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 5'
+      - §a建筑方块
+  - ==: org.bukkit.inventory.ItemStack
+    type: COBBLESTONE
+    amount: 16
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a建筑方块
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 15'
+  - ==: org.bukkit.inventory.ItemStack
+    type: NETHER_BRICK
+    amount: 16
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a建筑方块
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 20'
+  - ==: org.bukkit.inventory.ItemStack
+    type: SMOOTH_BRICK
+    amount: 16
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a建筑方块
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 20'
+  - ==: org.bukkit.inventory.ItemStack
+    type: LOG
+    amount: 16
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a建筑方块
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 20'
+  - ==: org.bukkit.inventory.ItemStack
+    type: ENDER_STONE
+    amount: 16
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a建筑方块
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 50'
+  - ==: org.bukkit.inventory.ItemStack
+    type: OBSIDIAN
+    amount: 5
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a建筑方块
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 100'
+  - null
+  - ==: org.bukkit.inventory.ItemStack
+    type: WOOD_PICKAXE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a工具
+      lore:
+      - '§e价值点数: 5'
+      - '§e奖励类型: item'
+  - ==: org.bukkit.inventory.ItemStack
+    type: STONE_AXE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a工具
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 20'
+  - ==: org.bukkit.inventory.ItemStack
+    type: STONE_PICKAXE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a工具
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 40'
+  - ==: org.bukkit.inventory.ItemStack
+    type: IRON_AXE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a工具
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 60'
+  - ==: org.bukkit.inventory.ItemStack
+    type: IRON_PICKAXE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a工具
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 100'
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_AXE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a工具
+      lore:
+      - '§e价值点数: 200'
+      - '§e奖励类型: item'
+      enchants:
+        DIG_SPEED: 2
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_PICKAXE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a工具
+      lore:
+      - '§e价值点数: 250'
+      - '§e奖励类型: item'
+      enchants:
+        DIG_SPEED: 2
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_PICKAXE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a工具
+      lore:
+      - '§e价值点数: 400'
+      - '§e奖励类型: item'
+      enchants:
+        DIG_SPEED: 4
+        SILK_TOUCH: 1
+        DURABILITY: 3
+  - null
+  - null
+食物药水商店:
+  size: 18
+  inv:
+  - ==: org.bukkit.inventory.ItemStack
+    type: BREAD
+    amount: 16
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a食物
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 10'
+  - ==: org.bukkit.inventory.ItemStack
+    type: GRILLED_PORK
+    amount: 16
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a食物
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 20'
+  - ==: org.bukkit.inventory.ItemStack
+    type: POTION
+    meta:
+      ==: ItemMeta
+      meta-type: POTION
+      display-name: §a食物
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 30'
+      potion-type: minecraft:regeneration
+  - ==: org.bukkit.inventory.ItemStack
+    type: POTION
+    meta:
+      ==: ItemMeta
+      meta-type: POTION
+      display-name: §a食物
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 50'
+      potion-type: minecraft:strong_regeneration
+  - ==: org.bukkit.inventory.ItemStack
+    type: POTION
+    meta:
+      ==: ItemMeta
+      meta-type: POTION
+      display-name: §a食物
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 60'
+      potion-type: minecraft:swiftness
+  - ==: org.bukkit.inventory.ItemStack
+    type: POTION
+    meta:
+      ==: ItemMeta
+      meta-type: POTION
+      display-name: §a食物
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 100'
+      potion-type: minecraft:long_swiftness
+  - ==: org.bukkit.inventory.ItemStack
+    type: POTION
+    meta:
+      ==: ItemMeta
+      meta-type: POTION
+      display-name: §a食物
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 60'
+      potion-type: minecraft:leaping
+  - ==: org.bukkit.inventory.ItemStack
+    type: POTION
+    meta:
+      ==: ItemMeta
+      meta-type: POTION
+      display-name: §a食物
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 100'
+      potion-type: minecraft:long_leaping
+  - ==: org.bukkit.inventory.ItemStack
+    type: GOLDEN_APPLE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a食物
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 150'
+  - ==: org.bukkit.inventory.ItemStack
+    type: GOLDEN_APPLE
+    damage: 1
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a食物
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 500'
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+装备商店:
+  size: 45
+  inv:
+  - ==: org.bukkit.inventory.ItemStack
+    type: LEATHER_HELMET
+    meta:
+      ==: ItemMeta
+      meta-type: LEATHER_ARMOR
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 15'
+  - ==: org.bukkit.inventory.ItemStack
+    type: LEATHER_CHESTPLATE
+    meta:
+      ==: ItemMeta
+      meta-type: LEATHER_ARMOR
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 15'
+  - ==: org.bukkit.inventory.ItemStack
+    type: LEATHER_LEGGINGS
+    meta:
+      ==: ItemMeta
+      meta-type: LEATHER_ARMOR
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 15'
+  - ==: org.bukkit.inventory.ItemStack
+    type: LEATHER_BOOTS
+    meta:
+      ==: ItemMeta
+      meta-type: LEATHER_ARMOR
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 15'
+  - ==: org.bukkit.inventory.ItemStack
+    type: IRON_HELMET
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 50'
+  - ==: org.bukkit.inventory.ItemStack
+    type: IRON_CHESTPLATE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 50'
+  - ==: org.bukkit.inventory.ItemStack
+    type: IRON_LEGGINGS
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 50'
+  - ==: org.bukkit.inventory.ItemStack
+    type: IRON_BOOTS
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 50'
+  - null
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_HELMET
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 100'
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_CHESTPLATE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 100'
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_LEGGINGS
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 100'
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_BOOTS
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 100'
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_HELMET
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 400'
+      enchants:
+        PROTECTION_ENVIRONMENTAL: 2
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_CHESTPLATE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 600'
+      enchants:
+        PROTECTION_ENVIRONMENTAL: 2
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_LEGGINGS
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 400'
+      enchants:
+        PROTECTION_PROJECTILE: 3
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_BOOTS
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 400'
+      enchants:
+        PROTECTION_ENVIRONMENTAL: 2
+  - null
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_HELMET
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 850'
+      enchants:
+        PROTECTION_ENVIRONMENTAL: 4
+      repair-cost: 1
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_CHESTPLATE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 1500'
+      enchants:
+        PROTECTION_ENVIRONMENTAL: 4
+      repair-cost: 1
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_LEGGINGS
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 1000'
+      enchants:
+        PROTECTION_ENVIRONMENTAL: 4
+        DURABILITY: 3
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_BOOTS
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a装备
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 900'
+      enchants:
+        PROTECTION_ENVIRONMENTAL: 4
+        DURABILITY: 3
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+武器商店:
+  size: 36
+  inv:
+  - ==: org.bukkit.inventory.ItemStack
+    type: IRON_SWORD
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a武器
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 20'
+  - ==: org.bukkit.inventory.ItemStack
+    type: DIAMOND_SWORD
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a武器
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 50'
+  - ==: org.bukkit.inventory.ItemStack
+    type: BOW
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a武器
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 50'
+  - ==: org.bukkit.inventory.ItemStack
+    type: BOW
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §e火神弓
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 500'
+      enchants:
+        ARROW_FIRE: 1
+        ARROW_INFINITE: 1
+      repair-cost: 3
+  - null
+  - null
+  - null
+  - null
+  - null
+  - ==: org.bukkit.inventory.ItemStack
+    type: ARROW
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a武器
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 3'
+  - ==: org.bukkit.inventory.ItemStack
+    type: ARROW
+    amount: 63
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §a武器
+      lore:
+      - '§e奖励类型: item'
+      - '§e价值点数: 100'
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - ==: org.bukkit.inventory.ItemStack
+    type: WOOD_AXE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §f苍鹰 强射手§f§f «12»
+      lore:
+      - §f§l常见的苍鹰系列强射手之力
+      - '§e价值点数: 120'
+      - '§e奖励类型: item'
+  - ==: org.bukkit.inventory.ItemStack
+    type: WOOD_SPADE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §f§l苍鹰 句号黄昏§f§f «12»
+      lore:
+      - §f§l苍鹰系列中最强的
+      - §f§l一样不合就给你画上完美的句号！
+      - '§e奖励类型: item'
+      - '§e价值点数: 350'
+  - ==: org.bukkit.inventory.ItemStack
+    type: WOOD_HOE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §f§l苍鹰 木伞散§f§f ▪ «8»
+      lore:
+      - §f§l苍鹰系列中威力较强的
+      - §f§l近战伤害爆炸
+      - '§e奖励类型: item'
+      - '§e价值点数: 560'
+  - ==: org.bukkit.inventory.ItemStack
+    type: STONE_SPADE
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §f爆发电擎 雷警§f «30»
+      lore:
+      - §f§l雷警！警告！
+      - '§e奖励类型: item'
+      - '§e价值点数: 890'
+  - ==: org.bukkit.inventory.ItemStack
+    type: SPECKLED_MELON
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §b§l成长荆棘§e§l-§4§l吸血鬼针雨§9[上品]§f§f «43»
+      lore:
+      - §2侠盗戮风首把成长型武器
+      - §2可使用 §a灵魂结晶 §2对武器进行结合
+      - '§3 - §7品质: §9上品'
+      - '§3 - §7品质加成: §eap+1 ammo+3'
+      - '§3 - §7下一品质: §d精品'
+      - '§3 - §7下一品质加成: §e...'
+      - '§e奖励类型: item'
+      - '§e价值点数: 1200'
+  - ==: org.bukkit.inventory.ItemStack
+    type: SPECKLED_MELON
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §b§l成长荆棘§e§l-§4§l吸血鬼针雨§d[精品]§f§f «45»
+      lore:
+      - §2侠盗戮风首把成长型武器
+      - §2可使用 §a灵魂结晶 §2对武器进行结合
+      - '§3 - §7品质: §d精品'
+      - '§3 - §7品质加成: §eap+2 ammo+5 speed+1'
+      - '§3 - §7下一品质: §6极品'
+      - '§3 - §7下一品质加成: §e...'
+      - '§e奖励类型: item'
+      - '§e价值点数: 1600'
+  - ==: org.bukkit.inventory.ItemStack
+    type: SPECKLED_MELON
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §b§l成长荆棘§e§l-§4§l吸血鬼针雨§6[极品]§f§f «50»
+      lore:
+      - §2侠盗戮风首把成长型武器
+      - §2可使用 §a灵魂结晶 §2对武器进行结合
+      - '§3 - §7品质: §6极品'
+      - '§3 - §7品质加成: §eap+3 ammo+10 speed+2 ch+4'
+      - '§3 - §7下一品质: §e§l超·极品'
+      - '§3 - §7下一品质加成: §e...'
+      - '§e奖励类型: item'
+      - '§e价值点数: 2000'
+  - ==: org.bukkit.inventory.ItemStack
+    type: SPECKLED_MELON
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: §b§l成长荆棘§e§l-§4§l吸血鬼针雨§e§l[超·极品]§f§f «60»
+      lore:
+      - §2侠盗戮风首把成长型武器
+      - §2可使用 §a灵魂结晶§9[上品] §2对武器进行结合
+      - '§3 - §7品质: §e§l超·极品'
+      - '§3 - §7品质加成: §eammo+20 speed+6 pa+2 ch+5'
+      - '§3 - §7下一品质: §d§l传奇'
+      - '§3 - §7下一品质加成: §e...'
+      - '§e奖励类型: item'
+      - '§e价值点数: 2500'
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
